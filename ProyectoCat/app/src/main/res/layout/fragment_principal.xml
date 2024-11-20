@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+<FrameLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PrincipalFragment">
+
+    <LinearLayout
+        android:id="@+id/fondoCrema"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/creme"
+
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/fondoRedondeado"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:background="@drawable/rounded_background"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/logoPrincipal"
+                android:layout_width="500dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+
+                android:src="@drawable/logo" />
+
+            <LinearLayout
+                android:id="@+id/iconosPrincipal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/iconodiar"
+                    android:layout_width="118dp"
+                    android:layout_height="80dp"
+                    android:backgroundTint="@color/white"
+                    android:scaleType="centerInside"
+                    android:contentDescription="iconodediario"
+                    android:src="@drawable/diaryicon" />
+
+                <ImageButton
+                    android:id="@+id/iconodoc"
+                    android:layout_width="115dp"
+                    android:layout_height="80dp"
+                    android:backgroundTint="@color/white"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="iconodedoctor"
+                    android:src="@drawable/doctoricon" />
+
+                <ImageButton
+                    android:id="@+id/iconoTabl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:backgroundTint="@color/white"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="iconodeanuncios"
+                    android:src="@drawable/tablonicon" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="370dp"
+                android:scaleType="fitCenter"
+                android:padding="20dp"
+                android:src="@drawable/img" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="by BertoSC"
+                android:textSize="40sp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/amaticregular"
+                android:layout_marginBottom="10dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
+
+</ScrollView>

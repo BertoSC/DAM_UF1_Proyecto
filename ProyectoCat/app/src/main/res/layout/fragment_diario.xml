@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/creme"
+    android:padding="16dp">
+
+    <!-- Contenedor de título y imagen -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_background"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:gravity="center_horizontal">
+
+
+        <TextView
+            android:id="@+id/fragment_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/amaticregular"
+            android:text="@string/diario_felino"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:paddingLeft="30dp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/black" />
+
+
+        <ImageView
+            android:id="@+id/gato_diario"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:scaleType="fitCenter"
+            android:layout_gravity="end"
+
+            android:src="@drawable/cat" />
+
+    </LinearLayout>
+
+    <!-- RecyclerView -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Contenido principal, como un RecyclerView o ScrollView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"/>
+
+        <!-- ShapeableImageView flotante
+         app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"-->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/my_fab_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:src="@drawable/iconopata"
+            app:shapeAppearanceOverlay="@style/CircularShape"
+            />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    <!---<com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/alternativa"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:src="@drawable/iconopata"
+        app:shapeAppearanceOverlay="@style/CircularShape"
+
+         /> -->
+
+</LinearLayout>

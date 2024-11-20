@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/principalFragment">
+
+    <fragment
+        android:id="@+id/principalFragment"
+        android:name="com.example.proyecto_uf1.PrincipalFragment"
+        android:label=""
+        tools:layout="@layout/fragment_principal" >
+        <action
+            android:id="@+id/action_principalFragment_to_diarioFragment"
+            app:destination="@id/diarioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/diarioFragment"
+        android:name="com.example.proyecto_uf1.DiarioFragment"
+        android:label=""
+        tools:layout="@layout/fragment_diario" >
+        <action
+            android:id="@+id/action_diarioFragment_to_addEntradaFragment"
+            app:destination="@id/addEntradaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEntradaFragment"
+        android:name="com.example.proyecto_uf1.AddEntradaFragment"
+        android:label=""
+        tools:layout="@layout/fragment_add_entrada" >
+        <action
+            android:id="@+id/action_addEntradaFragment_to_diarioFragment"
+            app:destination="@id/diarioFragment" />
+    </fragment>
+</navigation>
