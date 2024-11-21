@@ -1,6 +1,8 @@
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyecto_uf1.DiarioEntry
@@ -19,6 +21,8 @@ class DiarioAdapter(private val entries: List<DiarioEntry>) :
     class DiarioViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val titulo: TextView = view.findViewById(R.id.titulo_diario)
         val texto: TextView = view.findViewById(R.id.texto_diario)
+        val fecha: TextView = view.findViewById(R.id.fecha_diario)
+        val imagen: ImageView = view.findViewById(R.id.imagen_diario)
     }
 
     // Lo usa el RV cuando necesita un nuevo VH
@@ -45,8 +49,16 @@ class DiarioAdapter(private val entries: List<DiarioEntry>) :
     override fun onBindViewHolder(holder: DiarioViewHolder, position: Int) {
         // Enlazar datos a las vistas
         val entry = entries[position]
+        holder.fecha.text = entry.fecha
         holder.titulo.text = entry.titulo
         holder.texto.text = entry.texto
+        // Mostrar la imagen si la URI no es nula
+        if (entry.imagenUri != null) {
+            holder.imagen.visibility = View.VISIBLE
+            holder.imagen.setImageURI(Uri.parse(entry.imagenUri)) // Convertir el String URI a Uri
+        } else {
+            holder.imagen.visibility = View.GONE
+        }
     }
 
     // devuelve el numero de elementos que hay en la lsita de datos para que el RV sepa
