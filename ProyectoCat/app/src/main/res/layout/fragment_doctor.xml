@@ -18,11 +18,11 @@
 
 
         <TextView
-            android:id="@+id/fragment_title"
+            android:id="@+id/fragment_title_doctor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/amaticregular"
-            android:text="@string/diario_felino"
+            android:text="@string/doctor_felino"
             android:textSize="30sp"
             android:textStyle="bold"
             android:paddingLeft="30dp"
@@ -31,16 +31,63 @@
 
 
         <ImageView
-            android:id="@+id/gato_diario"
+            android:id="@+id/gato_doctor"
             android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:paddingLeft="20dp"
-            android:paddingRight="10dp"
+            android:paddingRight="16dp"
             android:scaleType="fitCenter"
             android:layout_gravity="end"
+            android:src="@drawable/doctorfelino" />
 
-            android:src="@drawable/cat" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/rounded_background"
+        android:layout_margin="20dp">
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/doctor_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_doctor"
+            android:fontFamily="@font/amaticregular"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="40dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            />
+
+
+        <!-- Campo de entrada: Edad -->
+        <EditText
+            android:id="@+id/edad_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:hint="@string/edad"
+            android:textSize="16sp"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/btn_edad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:fontFamily="@font/amaticregular"
+            android:text="@string/btn_edad"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/brown"
+            android:textColor="@color/white"
+            android:layout_margin="16dp" />
     </LinearLayout>
 
 </LinearLayout>

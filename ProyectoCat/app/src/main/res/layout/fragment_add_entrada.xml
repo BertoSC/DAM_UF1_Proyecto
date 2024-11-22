@@ -33,7 +33,6 @@
                 android:layout_gravity="center" />
 
 
-
             <!-- Campo de entrada: Título -->
             <EditText
                 android:id="@+id/et_titulo"
@@ -43,9 +42,6 @@
                 android:hint="@string/add_titulo"
                 android:textSize="16sp"
                 android:inputType="text" />
-
-
-
 
             <!-- Campo de entrada: Texto -->
             <EditText
@@ -71,13 +67,14 @@
             <!-- Botón para seleccionar una imagen -->
             <Button
                 android:id="@+id/btn_seleccionar_imagen"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Seleccionar Imagen"
                 android:layout_gravity="center"
-                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/grey"
+                android:textColor="@color/black"
+                android:layout_margin="16dp"
                 />
-
 
             <Button
                 android:id="@+id/btn_guardar"
@@ -88,7 +85,7 @@
                 android:text="@string/btn_guardar"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/brown"
                 android:textColor="@color/white"
                 android:layout_margin="16dp" />
         </LinearLayout>

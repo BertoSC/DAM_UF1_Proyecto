@@ -39,7 +39,7 @@
         app:menu="@menu/menu_main"
         app:headerLayout="@layout/nav_header"
         android:backgroundTint="@color/white"
-
+        app:itemIconSize="35dp"
         android:layout_gravity="start"/>
 
 

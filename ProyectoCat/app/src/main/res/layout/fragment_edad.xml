@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/creme"
+    android:padding="16dp">
+
+    <!-- Contenedor de título y imagen -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:gravity="center_horizontal">
+
+    <!--
+        <TextView
+            android:id="@+id/fragment_title_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/amaticregular"
+            android:text="@string/doctor_felino"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:paddingLeft="30dp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/black" />
+-->
+
+        <ImageView
+            android:id="@+id/gato_doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="16dp"
+            android:scaleType="fitCenter"
+            android:layout_gravity="end"
+            android:src="@drawable/senior" />
+
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="80dp"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/rounded_background"
+            android:layout_margin="20dp">
+
+            <!-- Título -->
+            <TextView
+                android:id="@+id/add_entrada_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/adulto"
+                android:fontFamily="@font/amaticregular"
+                android:textSize="30sp"
+
+
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

@@ -10,5 +10,13 @@
 
         </item>
 
+        <item
+            android:id="@+id/doctorFragment"
+            android:icon="@drawable/doctoricon"
+            android:title="@string/doctor_felino"
+            app:showAsAction="always" >
+
+        </item>
+
     </group>
 </menu>

@@ -38,6 +38,14 @@
     <fragment
         android:id="@+id/doctorFragment"
         android:name="com.example.proyecto_uf1.DoctorFragment"
-        android:label="fragment_doctor"
-        tools:layout="@layout/fragment_doctor" />
+        android:label=""
+        tools:layout="@layout/fragment_doctor" >
+        <action
+            android:id="@+id/action_doctorFragment_to_edadFragment"
+            app:destination="@id/edadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/edadFragment"
+        android:name="com.example.proyecto_uf1.EdadFragment"
+        android:label="EdadFragment" />
 </navigation>
