@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_principalFragment_to_diarioFragment"
             app:destination="@id/diarioFragment" />
+        <action
+            android:id="@+id/action_principalFragment_to_doctorFragment"
+            app:destination="@id/doctorFragment" />
     </fragment>
     <fragment
         android:id="@+id/diarioFragment"
@@ -32,4 +35,9 @@
             android:id="@+id/action_addEntradaFragment_to_diarioFragment"
             app:destination="@id/diarioFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/doctorFragment"
+        android:name="com.example.proyecto_uf1.DoctorFragment"
+        android:label="fragment_doctor"
+        tools:layout="@layout/fragment_doctor" />
 </navigation>
