@@ -43,9 +43,16 @@
         <action
             android:id="@+id/action_doctorFragment_to_edadFragment"
             app:destination="@id/edadFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/edadFragment"
         android:name="com.example.proyecto_uf1.EdadFragment"
-        android:label="EdadFragment" />
+        android:label="">
+
+        <argument
+            android:name="edad"
+            app:argType="integer" />
+    </fragment>
+
 </navigation>

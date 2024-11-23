@@ -68,5 +68,8 @@
 
     </string>
 
+    <string name="toastFormatoNum">"Por favor, introduce un número válido"</string>
+    <string name="toastCampoVacio">"Por favor, introduce la edad"</string>
+
 
 </resources>

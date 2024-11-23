@@ -58,10 +58,10 @@
 
             <!-- Título -->
             <TextView
-                android:id="@+id/add_entrada_tv"
+                android:id="@+id/consejos_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/adulto"
+                android:text=""
                 android:fontFamily="@font/amaticregular"
                 android:textSize="30sp"
 
