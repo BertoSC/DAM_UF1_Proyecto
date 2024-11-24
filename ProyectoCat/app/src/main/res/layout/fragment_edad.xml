@@ -31,14 +31,14 @@
 -->
 
         <ImageView
-            android:id="@+id/gato_doctor"
+            android:id="@+id/gato_edad"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:paddingLeft="20dp"
             android:paddingRight="16dp"
             android:scaleType="fitCenter"
             android:layout_gravity="end"
-            android:src="@drawable/senior" />
+            android:src="@drawable/cachorro" />
 
     </LinearLayout>
 
