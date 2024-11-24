@@ -2,6 +2,7 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -9,9 +10,12 @@ import com.example.proyecto_uf1.DiarioEntry
 import com.example.proyecto_uf1.R
 
 // el adaptador vincula los datos de la lista con las vistas del RV, recibe la lista de elementos
-//
+// se le pasa una lista y una función para borrar las entradas
+// esta funciona como un callback que notifica al fragment o viwmodel cuando se hace clic en el boton de eliminar
+//para ejecutar la accion
 
-class DiarioAdapter(private val entries: List<DiarioEntry>) :
+class DiarioAdapter(private val entries: List<DiarioEntry>, private val onDeleteClick: (DiarioEntry) -> Unit
+):
     RecyclerView.Adapter<DiarioAdapter.DiarioViewHolder>() {
 
     // ViewHolder: Enlaza los datos con los componentes visuales> es decir contiene la vista
@@ -59,6 +63,11 @@ class DiarioAdapter(private val entries: List<DiarioEntry>) :
         } else {
             holder.imagen.visibility = View.GONE
         }
+
+        holder.itemView.findViewById<Button>(R.id.btn_eliminar).setOnClickListener {
+            onDeleteClick(entry)
+        }
+
     }
 
     // devuelve el numero de elementos que hay en la lsita de datos para que el RV sepa

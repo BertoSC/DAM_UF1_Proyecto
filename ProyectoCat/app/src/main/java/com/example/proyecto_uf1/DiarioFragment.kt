@@ -34,9 +34,13 @@ class DiarioFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Configurar RecyclerView
+        // al instanciar el adaptador se implementa el callback para llamar a la funcion
+        // cuando el callback se ejecte la funcion actúa
         recyclerView = view.findViewById(R.id.recyclerView)
         diarioEntries = mutableListOf()
-        adapter = DiarioAdapter(diarioEntries)
+        adapter = DiarioAdapter(diarioEntries) { entryToDelete ->
+            model.eliminarEntrada(entryToDelete)
+        }
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
 

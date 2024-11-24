@@ -49,4 +49,17 @@
         android:textSize="25sp"
         android:layout_marginTop="8dp"
         android:textColor="@android:color/black" />
+    <Button
+        android:id="@+id/btn_eliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ELIMINAR"
+        android:backgroundTint="@color/brown"
+        android:textColor="@color/white"
+        android:fontFamily="@font/amaticregular"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+         />
 </LinearLayout>
