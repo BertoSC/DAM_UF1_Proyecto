@@ -41,8 +41,8 @@ class AddEntradaFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-       super.onViewCreated(view, savedInstanceState)
-       val currentDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
+        super.onViewCreated(view, savedInstanceState)
+        val currentDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
         // Inicializar el ActivityResultLauncher
         // usuario selecciona una imagen de la galería,
         // el resultado de esa acción (la URI de la imagen seleccionada)
@@ -69,22 +69,22 @@ class AddEntradaFragment : Fragment() {
         }
 
 
-       val etTitulo: EditText = view.findViewById(R.id.et_titulo)
-       val etTexto: EditText = view.findViewById(R.id.et_texto)
-       val btnGuardar: Button = view.findViewById(R.id.btn_guardar)
+        val etTitulo: EditText = view.findViewById(R.id.et_titulo)
+        val etTexto: EditText = view.findViewById(R.id.et_texto)
+        val btnGuardar: Button = view.findViewById(R.id.btn_guardar)
 
 
-            btnGuardar.setOnClickListener {
-                val titulo = etTitulo.text.toString()
-                val texto = etTexto.text.toString()
+        btnGuardar.setOnClickListener {
+            val titulo = etTitulo.text.toString()
+            val texto = etTexto.text.toString()
 
-                if (titulo.isNotEmpty() && texto.isNotEmpty()) {
-                    val imagenUriString = selectedImageUri?.toString()
-                    val nuevaEntrada = DiarioEntry(titulo, texto, currentDate, imagenUriString)
-                    model.agregarEntrada(nuevaEntrada)
-                    findNavController().popBackStack()
+            if (titulo.isNotEmpty() && texto.isNotEmpty()) {
+                val imagenUriString = selectedImageUri?.toString()
+                val nuevaEntrada = DiarioEntry(titulo, texto, currentDate, imagenUriString)
+                model.agregarEntrada(nuevaEntrada)
+                findNavController().popBackStack()
                 // se elimina el frag actual de la pila y regresa al anterior
-                }
             }
+        }
     }
 }

@@ -19,7 +19,7 @@ class DiarioAdapter(private val entries: List<DiarioEntry>, private val onDelete
     RecyclerView.Adapter<DiarioAdapter.DiarioViewHolder>() {
 
     // ViewHolder: Enlaza los datos con los componentes visuales> es decir contiene la vista
-        // de un único item del RV
+    // de un único item del RV
     // mantiene una referencia a las vistas de un item especifico, por eso recoge los parámetros
 
     class DiarioViewHolder(view: View) : RecyclerView.ViewHolder(view) {
