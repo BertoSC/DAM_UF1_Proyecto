@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("androidx.navigation.safeargs")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -41,6 +42,11 @@ android {
 }
 
 dependencies {
+
+    implementation("androidx.room:room-runtime:2.6.0")
+    implementation("androidx.room:room-ktx:2.6.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+    ksp("androidx.room:room-compiler:2.5.0")
     implementation ("androidx.drawerlayout:drawerlayout:1.2.0")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.4")

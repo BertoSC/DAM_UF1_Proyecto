@@ -22,17 +22,16 @@ class DoctorFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-         super.onViewCreated(view, savedInstanceState)
+        super.onViewCreated(view, savedInstanceState)
 
         val edadEditText = view.findViewById<EditText>(R.id.edad_tv)
-         val verConsejosButton = view.findViewById<Button>(R.id.btn_edad)
+        val verConsejosButton = view.findViewById<Button>(R.id.btn_edad)
 
         verConsejosButton.setOnClickListener {
             val edadTexto = edadEditText.text.toString()
             if (edadTexto.isNotEmpty()) {
                 try {
                     val edad = edadTexto.toInt()
-                    // Navegar a FragmentConsejosCuidado pasando la edad como argumento
                     val action = DoctorFragmentDirections.actionDoctorFragmentToEdadFragment(edad)
                     findNavController().navigate(action)
                 } catch (e: NumberFormatException) {

@@ -18,8 +18,9 @@ class DiarioViewModel : ViewModel() {
 
     // función para eliminar entradas
     // recupera la lisa de entradas, con value accedemos al contenido del live data
-    // con el filter incluimos todo slos elemenetos que no sean iguales a la entrada actual
+    // con el filter incluimos todo slos elementos que no sean iguales a la entrada actual
     //señalada
+
     fun eliminarEntrada(entry: DiarioEntry) {
         _entradas.value = _entradas.value?.filter { it != entry }?.toMutableList()
     }

@@ -81,7 +81,7 @@ class AddEntradaFragment : Fragment() {
                 if (titulo.isNotEmpty() && texto.isNotEmpty()) {
                     val imagenUriString = selectedImageUri?.toString()
                     val nuevaEntrada = DiarioEntry(titulo, texto, currentDate, imagenUriString)
-                   model.agregarEntrada(nuevaEntrada)
+                    model.agregarEntrada(nuevaEntrada)
                     findNavController().popBackStack()
                 // se elimina el frag actual de la pila y regresa al anterior
                 }
