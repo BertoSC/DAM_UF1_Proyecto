@@ -28,6 +28,7 @@ class DiarioFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_diario, container, false)
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -38,6 +39,15 @@ class DiarioFragment : Fragment() {
         }
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
+
+
+        // Observar cambios en las entradas del ViewModel, la propiedad de solo observacion
+        // el objeto viewlifecicleowner permite que solo se observen cambios cuando la vista esta activa
+        // si hay cambios, se entra al código de la lambda
+        //La lista diarioEntries es la que está vinculada al RecyclerView a través del adaptador.
+        // Este código limpia la lista de entradas actual en diarioEntries,
+        // eliminando todos los elementos anteriores. >> para tener la lista actualizada siempre
+
 
         model.entradas.observe(viewLifecycleOwner) { lista ->
             diarioEntries.clear()

@@ -11,7 +11,7 @@ import com.example.proyecto_uf1.R
 
 // el adaptador vincula los datos de la lista con las vistas del RV, recibe la lista de elementos
 // se le pasa una lista y una función para borrar las entradas
-// esta funciona como un callback que notifica al fragment o viwmodel cuando se hace clic en el boton de eliminar
+// esta funciona como un callback que notifica al fragment o viewmodel cuando se hace clic en el boton de eliminar
 //para ejecutar la accion
 
 class DiarioAdapter(private val entries: List<DiarioEntry>, private val onDeleteClick: (DiarioEntry) -> Unit
