@@ -5,8 +5,8 @@ import android.net.Uri
 
 
 data class DiarioEntry(
-    val titulo: String,
-    val texto: String,
-    val fecha: String,
+    val titulo: String?,
+    val texto: String?,
+    val fecha: String?,
     val imagenUri: String? = null
 )

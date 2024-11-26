@@ -1,4 +1,69 @@
 package com.example.proyecto_uf1
+import DiarioAdapter
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.imageview.ShapeableImageView
+
+class DiarioFragment : Fragment() {
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: DiarioAdapter
+    private lateinit var diarioEntries: MutableList<DiarioEntry>
+
+    val model: DiarioViewModel by viewModels(
+        ownerProducer = { this.requireActivity() }
+    )
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_diario, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        recyclerView = view.findViewById(R.id.recyclerView)
+        diarioEntries = mutableListOf()
+        adapter = DiarioAdapter(diarioEntries) { entryToDelete ->
+            model.eliminarEntrada(entryToDelete)
+        }
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = adapter
+
+        model.entradas.observe(viewLifecycleOwner) { lista ->
+            diarioEntries.clear()
+            diarioEntries.addAll(lista)
+            adapter.notifyDataSetChanged()
+        }
+
+        val myFabImage: ShapeableImageView = view.findViewById(R.id.my_fab_image)
+        myFabImage.setOnClickListener {
+            val action = DiarioFragmentDirections.actionDiarioFragmentToAddEntradaFragment()
+            findNavController().navigate(action)
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+/*
+
+package com.example.proyecto_uf1
 
 import DiarioAdapter
 import android.os.Bundle
@@ -66,3 +131,4 @@ class DiarioFragment : Fragment() {
         }
     }
 }
+*/
