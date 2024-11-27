@@ -32,7 +32,6 @@ class EdadFragment : Fragment() {
         model.edad.observe(viewLifecycleOwner) { nuevaEdad ->
             consejosTextView.text= getString(model.asignarId())
             imagenGato.setImageResource(model.asignarImg())
-
         }
 
         /*val args = EdadFragmentArgs.fromBundle(requireArguments())
