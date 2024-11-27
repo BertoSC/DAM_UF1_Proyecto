@@ -34,6 +34,7 @@ class AddEntradaFragment : Fragment() {
     // se registra el lanzador, en este caso de imagenes
     // se lanza la actividad (con el intent)
     // intent es un objeto para comunicarse entre componentes del SO
+
     private lateinit var imagePickerLauncher: ActivityResultLauncher<Intent>
     private var selectedImageUri: Uri? = null
 
@@ -73,6 +74,7 @@ class AddEntradaFragment : Fragment() {
         //Este intent le dice al sistema operativo que queremos seleccionar algo
         // (en este caso, una imagen) de la galería del dispositivo.
         // en concreto, a las imagenes de la memoria
+
         val selectImageButton: Button = view.findViewById(R.id.btn_seleccionar_imagen)
         selectImageButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)

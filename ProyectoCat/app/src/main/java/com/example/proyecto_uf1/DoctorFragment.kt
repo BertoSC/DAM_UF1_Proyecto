@@ -8,10 +8,15 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 
 
 class DoctorFragment : Fragment() {
+
+    val model: DoctorViewModel by viewModels(
+        ownerProducer = { this.requireActivity() }
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,8 +37,10 @@ class DoctorFragment : Fragment() {
             if (edadTexto.isNotEmpty()) {
                 try {
                     val edad = edadTexto.toInt()
-                    val action = DoctorFragmentDirections.actionDoctorFragmentToEdadFragment(edad)
-                    findNavController().navigate(action)
+                    model.setEdad(edad)
+                    //val action = DoctorFragmentDirections.actionDoctorFragmentToEdadFragment(edad)
+                    //findNavController().navigate(action)
+                    findNavController().navigate(R.id.action_doctorFragment_to_edadFragment)
                 } catch (e: NumberFormatException) {
                     Toast.makeText(requireContext(), getText(R.string.toastFormatoNum), Toast.LENGTH_SHORT).show()
                 }
@@ -41,6 +48,6 @@ class DoctorFragment : Fragment() {
                 Toast.makeText(requireContext(), getText(R.string.toastCampoVacio), Toast.LENGTH_SHORT).show()
             }
         }
-        }
     }
+}
 

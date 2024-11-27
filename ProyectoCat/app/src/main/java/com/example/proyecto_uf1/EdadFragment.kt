@@ -7,9 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.viewModels
 
 
 class EdadFragment : Fragment() {
+
+    val model: DoctorViewModel by viewModels(
+        ownerProducer = { this.requireActivity() }
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,10 +29,16 @@ class EdadFragment : Fragment() {
 
         val consejosTextView = view.findViewById<TextView>(R.id.consejos_tv)
         val imagenGato = view.findViewById<ImageView>(R.id.gato_edad)
-        val args = EdadFragmentArgs.fromBundle(requireArguments())
+        model.edad.observe(viewLifecycleOwner) { nuevaEdad ->
+            consejosTextView.text= getString(model.asignarId())
+            imagenGato.setImageResource(model.asignarImg())
+
+        }
+
+        /*val args = EdadFragmentArgs.fromBundle(requireArguments())
         val edadGato = args.edad
 
-        // Muestra consejos según la edad
+
         val consejos = when {
             edadGato < 1 -> getString(R.string.cachorro)
             edadGato in 1..3 -> getString(R.string.joven)
@@ -43,5 +54,7 @@ class EdadFragment : Fragment() {
         }
 
         consejosTextView.text = consejos
+
+        */
     }
 }

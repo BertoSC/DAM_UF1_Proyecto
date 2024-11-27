@@ -113,19 +113,7 @@ class DiarioViewModel(application: Application) : AndroidViewModel(application) 
             null
         }
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 
