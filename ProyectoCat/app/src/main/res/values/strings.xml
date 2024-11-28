@@ -71,5 +71,11 @@
     <string name="toastFormatoNum">"Por favor, introduce un número válido"</string>
     <string name="toastCampoVacio">"Por favor, introduce la edad"</string>
 
+    <string name="randomTitulo">Felino Random</string>
+    <string name="randomTexto">Pulsa el botón para ver a un michi aleatorio</string>
+    <string name="randomBoton">BUSCAR GATITO</string>
+    <string name="errorAPI">UPS, hubo un michierror</string>
+
+
 
 </resources>

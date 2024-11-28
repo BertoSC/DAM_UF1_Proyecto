@@ -42,6 +42,11 @@ android {
 }
 
 dependencies {
+    implementation ("com.github.bumptech.glide:glide:4.15.1")
+    kapt ("com.github.bumptech.glide:compiler:4.15.1")
+
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.google.code.gson:gson:2.10.1")
     implementation ("androidx.drawerlayout:drawerlayout:1.2.0")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")

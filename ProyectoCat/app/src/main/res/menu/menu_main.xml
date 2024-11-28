@@ -18,5 +18,13 @@
 
         </item>
 
+        <item
+            android:id="@+id/randomCatFragment"
+            android:icon="@drawable/doctoricon"
+            android:title="@string/randomTitulo"
+            app:showAsAction="always" >
+
+        </item>
+
     </group>
 </menu>

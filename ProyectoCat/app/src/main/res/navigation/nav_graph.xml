@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_principalFragment_to_doctorFragment"
             app:destination="@id/doctorFragment" />
+        <action
+            android:id="@+id/action_principalFragment_to_randomCatFragment"
+            app:destination="@id/randomCatFragment" />
     </fragment>
     <fragment
         android:id="@+id/diarioFragment"
@@ -54,5 +57,9 @@
             android:name="edad"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/randomCatFragment"
+        android:name="com.example.proyecto_uf1.RandomCatFragment"
+        android:label="" />
 
 </navigation>
