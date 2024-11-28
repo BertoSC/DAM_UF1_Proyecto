@@ -1,5 +1,6 @@
 package com.example.proyecto_uf1
 
+import RandomCatViewModel
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import retrofit2.Call
 import retrofit2.Callback
@@ -18,11 +20,12 @@ class RandomCatFragment : Fragment() {
     private lateinit var catImageView: ImageView
     private lateinit var fetchButton: Button
 
+    private val viewModel: RandomCatViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_random_cat, container, false)
     }
 
@@ -32,30 +35,20 @@ class RandomCatFragment : Fragment() {
         catImageView = view.findViewById(R.id.imagenRandom)
         fetchButton = view.findViewById(R.id.btn_random)
 
-        fetchButton.setOnClickListener {
-            obtenerGatito()
+        viewModel.catImageUrl.observe(viewLifecycleOwner) { url ->
+            url?.let {
+                Glide.with(this).load(it).into(catImageView)
+            }
         }
-    }
 
-    private fun obtenerGatito() {
-        val catApi = RetrofitClient.instance.create(CatApiService::class.java)
-        catApi.getRandomCatImage().enqueue(object : Callback<List<CatImageResponse>> {
-            override fun onResponse(
-                call: Call<List<CatImageResponse>>,
-                response: Response<List<CatImageResponse>>
-            ) {
-                if (response.isSuccessful && response.body() != null) {
-                    val catImageUrl = response.body()!![0].url
-                    Glide.with(this@RandomCatFragment)
-                        .load(catImageUrl)
-                        .into(catImageView)
-                }
+        viewModel.error.observe(viewLifecycleOwner) { errorMessage ->
+            errorMessage?.let {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
             }
+        }
 
-            override fun onFailure(call: Call<List<CatImageResponse>>, t: Throwable) {
-                t.printStackTrace()
-                Toast.makeText(requireContext(), getText(R.string.errorAPI), Toast.LENGTH_SHORT).show()
-            }
-        })
+        fetchButton.setOnClickListener {
+            viewModel.obtenerGatito()
+        }
     }
 }

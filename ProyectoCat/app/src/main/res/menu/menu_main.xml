@@ -20,7 +20,7 @@
 
         <item
             android:id="@+id/randomCatFragment"
-            android:icon="@drawable/doctoricon"
+            android:icon="@drawable/randomicon"
             android:title="@string/randomTitulo"
             app:showAsAction="always" >
 
