@@ -56,17 +56,16 @@
             android:background="@drawable/rounded_background"
             android:layout_margin="20dp">
 
-            <!-- Título -->
+
             <TextView
                 android:id="@+id/consejos_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:fontFamily="@font/amaticregular"
-                android:textSize="30sp"
-
-
-                android:layout_gravity="center" />
+                android:textAlignment="textStart"
+                android:fontFamily="@font/josefinsanslight"
+                android:textSize="26sp"
+                />
 
         </LinearLayout>
 

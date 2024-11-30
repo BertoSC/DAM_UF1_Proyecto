@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:text="Fecha"
         android:textSize="14sp"
+        android:fontFamily="@font/josefinesans"
         android:textColor="@android:color/darker_gray" />
 
     <TextView
@@ -20,14 +21,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Título"
-        android:textSize="28sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:fontFamily="@font/amaticregular"
+
         android:gravity="center"
         android:textColor="@android:color/black"
         android:layout_margin="10dp"/>
 
-    <!-- ImageView para mostrar la imagen -->
+
     <ImageView
         android:id="@+id/imagen_diario"
         android:layout_width="match_parent"
@@ -44,16 +46,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Texto del diario"
-        android:gravity="center"
-        android:fontFamily="@font/amaticregular"
-        android:textSize="25sp"
+        android:fontFamily="@font/josefinsanslight"
+        android:textAlignment="textStart"
+        android:textSize="23sp"
         android:layout_marginTop="8dp"
         android:textColor="@android:color/black" />
+
     <Button
         android:id="@+id/btn_eliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ELIMINAR"
+        android:text="@string/btn_eliminar"
         android:backgroundTint="@color/brown"
         android:textColor="@color/white"
         android:fontFamily="@font/amaticregular"
@@ -62,4 +65,5 @@
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
          />
+
 </LinearLayout>

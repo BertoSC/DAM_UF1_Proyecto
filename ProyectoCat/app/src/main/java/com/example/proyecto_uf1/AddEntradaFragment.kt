@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContentProviderCompat
@@ -97,7 +98,8 @@ class AddEntradaFragment : Fragment() {
                 val nuevaEntrada = DiarioEntry(titulo, texto, currentDate, imagenUriString)
                 model.agregarEntrada(nuevaEntrada)
                 findNavController().popBackStack()
-                // se elimina el frag actual de la pila y regresa al anterior
+            } else {
+                Toast.makeText(requireContext(), getText(R.string.toastentrada), Toast.LENGTH_SHORT).show()
             }
         }
     }

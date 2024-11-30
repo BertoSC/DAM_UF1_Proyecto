@@ -14,7 +14,7 @@ import com.example.proyecto_uf1.R
 // esta funciona como un callback que notifica al fragment o viewmodel cuando se hace clic en el boton de eliminar
 //para ejecutar la accion
 
-class DiarioAdapter(private val entries: List<DiarioEntry>, private val onDeleteClick: (DiarioEntry) -> Unit
+class DiarioAdapter(private val entradas: List<DiarioEntry>, private val clicEliminar: (DiarioEntry) -> Unit
 ):
     RecyclerView.Adapter<DiarioAdapter.DiarioViewHolder>() {
 
@@ -52,7 +52,7 @@ class DiarioAdapter(private val entries: List<DiarioEntry>, private val onDelete
 
     override fun onBindViewHolder(holder: DiarioViewHolder, position: Int) {
         // Enlazar datos a las vistas
-        val entry = entries[position]
+        val entry = entradas[position]
         holder.fecha.text = entry.fecha
         holder.titulo.text = entry.titulo
         holder.texto.text = entry.texto
@@ -65,14 +65,14 @@ class DiarioAdapter(private val entries: List<DiarioEntry>, private val onDelete
         }
 
         holder.itemView.findViewById<Button>(R.id.btn_eliminar).setOnClickListener {
-            onDeleteClick(entry)
+            clicEliminar(entry)
         }
 
     }
 
     // devuelve el numero de elementos que hay en la lsita de datos para que el RV sepa
     // cuantos items debe mostrar
-    override fun getItemCount(): Int = entries.size
+    override fun getItemCount(): Int = entradas.size
 
     // El RecyclerView solicita la cantidad de ítems que necesita mostrar (getItemCount()).
     // Si el RecyclerView necesita mostrar un nuevo ítem, llama a onCreateViewHolder() para crear un nuevo ViewHolder.
