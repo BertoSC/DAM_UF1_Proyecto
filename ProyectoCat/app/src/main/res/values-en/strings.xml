@@ -1,2 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Project_UF1</string>
+    <string name="diario_felino">Feline Diary</string>
+
+    <string name="add_titulo">Add a title</string>
+    <string name="text_post">Write the text</string>
+    <string name="add_entrada">Write a new post</string>
+    <string name="btn_guardar">SAVE</string>
+    <string name="btn_eliminar">DELETE</string>
+
+    <string name="toastentrada">Please enter at least one title and one text.</string>
+
+    <string name="doctor_felino">Feline Doctor</string>
+    <string name="add_doctor">Tell me the age of your kitten and \n I'll tell you a little something.</string>
+    <string name="edad">Age in years</string>
+    <string name="btn_edad">ADVICES </string>
+
+    <string name="cachorro">Your cat is a kitten! \n\n At this stage, he will be mischievous and playful and it is impossible to predict his character later on. \n\n
+
+       During the first few weeks of life, you can feed him with a specific formula and, from four weeks onwards, introduce wet food or special kitten kibble, which is easier to chew.\n\n
+       In all likelihood, he will be very affectionate with you, and will need a warm environment to rest in and an accessible litter box.\n\n
+
+        The deworming process is important and also start getting him used to having his teeth, ears or claws examined. This will reduce problems related to this at future vet visits and routine check-ups.\n\n
+
+        From the age of six months, you should consider whether you are going to sterilise it, to prevent health and behavioural problems.\n\n
+    </string>
+
+    <string name="joven">
+
+      Your cat is very young! \n\n
+        At this stage, between 1 and 3 years old, he is young, curious and strong and is reaching a period of general maturity, both physically and emotionally.\n\n
+        If you have not neutered him, he may start to behave in undesirable ways from now on. \n\n
+
+        The usual diet should be based on feed or wet food adapted to their age range. They are routine animals, so they get used to a specific type of food very easily.\n\n
+        But do not hesitate to rotate the type of food based on meat, fish or chicken and thus discover what is their favourite.\n\n
+
+        It is territorial and loves to explore its environment. The main health problems can stem from infections, parasites or other problems caused during his adventures, although it depends a lot if he is home or if he interacts outdoors.\n\n
+        His first vaccination will be during this period.\n\n
+
+        During this period, he will receive his first booster vaccination, which will protect him from some of the more common infectious diseases.\n\n
+    </string>
+
+    <string name="adulto">
+        Your cat is an adult! \n\nThey are not as active as they were when they were puppies, but they still love to play, hunt and interact with you.\n\n
+
+        Although they are not as active as when they were kittens, they still love to play, hunt and interact with you.\n\n
+
+        If you have had no complications so far, this period is usually calm and without major problems. \n\n
+        However, it is important to monitor your cats weight and keep a close eye on food rations. Neutered cats often tend to put on weight,
+        so it is advisable to introduce a specific food for sterilised cats. Hydration is also important as they get older, so change their water daily to keep it clean and fresh. \n\n
+
+        Regular dental check-ups should also be carried out, as dental problems are common in many adult cats, such as inflammation or infection. \n\n Dental check-ups should also be carried out regularly, as dental problems are common in many adult cats, such as inflammation or infection.\n\n
+    </string>
+
+    <string name="senior">
+        Your cat is a senior! \n\n
+
+        At this stage, it is very common for cats to change from a more playful and hunting behaviour to a more relaxed and routine one.\n\n
+        Not all cats are the same: many retain their hunting and playfulness as part of their day-to-day lives, while others prefer to rest,
+        enjoy the comfort of their human and a good blanket.\n\n
+
+        From here, it is of utmost importance to watch for any changes in their behaviour or routine, as it is very common and likely that dental problems, kidney problems, liver problems and much more serious conditions will develop. \n\n
+        It is also a good idea to examine them during cuddling sessions. Sometimes, they can lose hair and cause injury to themselves by excessive licking due to stress or anxiety. \n\n
+
+        Obesity also tends to peak at this stage and it is usual to adapt feed again to this age range. \n\n
+        From the age of 14 years onwards, especially, routine check-ups become increasingly important, as well as special attention.\n\n However, most problems are treatable and will ensure a good quality of life.\n\n
+
+    </string>
+
+    <string name="toastFormatoNum">Please enter a valid number</string>
+    <string name="toastCampoVacio">Please enter age</string>
+
+    <string name="randomTitulo">Random Feline</string>
+    <string name="randomTexto">Press the button to see a random kitten</string>
+    <string name="randomBoton">SEARCH CAT</string>
+    <string name="errorAPI">UPS, there was a misskitten</string>
+
+
+
+</resources>

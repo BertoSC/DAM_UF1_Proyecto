@@ -103,23 +103,4 @@ class AddEntradaFragment : Fragment() {
             }
         }
     }
-
-    /*fun saveImageToInternalStorage(uri: Uri): String? {
-        return try {
-            val inputStream: InputStream? = requireContext().contentResolver.openInputStream(uri)
-            val fileName = "IMG_${System.currentTimeMillis()}.jpg"
-            val file = File(requireContext().filesDir, fileName)
-            val outputStream = FileOutputStream(file)
-
-            inputStream?.copyTo(outputStream)
-
-            inputStream?.close()
-            outputStream.close()
-
-            file.absolutePath // Devuelve la ruta completa donde se guardó la imagen
-        } catch (e: Exception) {
-            e.printStackTrace()
-            null
-        }
-    }*/
 }

@@ -7,7 +7,7 @@
     android:background="@color/creme"
     android:padding="16dp">
 
-    <!-- Contenedor de título y imagen -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,20 +44,19 @@
 
     </LinearLayout>
 
-    <!-- RecyclerView -->
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- Contenido principal, como un RecyclerView o ScrollView -->
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="20dp"/>
 
-        <!-- ShapeableImageView flotante
-        -->
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/my_fab_image"
             android:layout_width="90dp"
@@ -70,17 +69,5 @@
             />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
-    <!---<com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/alternativa"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="16dp"
-        android:src="@drawable/iconopata"
-        app:shapeAppearanceOverlay="@style/CircularShape"
-
-         /> -->
 
 </LinearLayout>

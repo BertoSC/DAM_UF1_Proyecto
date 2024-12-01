@@ -37,8 +37,6 @@ class DoctorFragment : Fragment() {
                 try {
                     val edad = edadTexto.toInt()
                     model.setEdad(edad)
-                    //val action = DoctorFragmentDirections.actionDoctorFragmentToEdadFragment(edad)
-                    //findNavController().navigate(action)
                     findNavController().navigate(R.id.action_doctorFragment_to_edadFragment)
                 } catch (e: NumberFormatException) {
                     Toast.makeText(requireContext(), getText(R.string.toastFormatoNum), Toast.LENGTH_SHORT).show()
