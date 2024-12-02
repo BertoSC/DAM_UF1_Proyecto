@@ -1,6 +1,6 @@
-package com.example.proyecto_uf1
+package com.example.proyecto_uf1.views
 
-import RandomCatViewModel
+import com.example.proyecto_uf1.viewmodels.RandomCatViewModel
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,11 +11,12 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.example.proyecto_uf1.databinding.FragmentRandomCatBinding
 
 class RandomCatFragment : Fragment() {
+
+    var _binding: FragmentRandomCatBinding?=null
+    val binding get() = _binding!!
 
     private lateinit var catImageView: ImageView
     private lateinit var fetchButton: Button
@@ -26,14 +27,17 @@ class RandomCatFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_random_cat, container, false)
+        _binding = FragmentRandomCatBinding.inflate(inflater, container, false)
+        var view = binding.root
+        return view
+        //return inflater.inflate(R.layout.fragment_random_cat, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        catImageView = view.findViewById(R.id.imagenRandom)
-        fetchButton = view.findViewById(R.id.btn_random)
+        catImageView = binding.imagenRandom
+        fetchButton = binding.btnRandom
 
         viewModel.catImageUrl.observe(viewLifecycleOwner) { url ->
             url?.let {

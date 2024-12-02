@@ -1,6 +1,5 @@
-package com.example.proyecto_uf1
+package com.example.proyecto_uf1.models
 
-import android.net.Uri
 // molde clase "pollo" para los datos básicos del diario (pendiente de añadir más)
 
 

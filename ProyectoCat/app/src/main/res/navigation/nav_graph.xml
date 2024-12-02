@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/principalFragment"
-        android:name="com.example.proyecto_uf1.PrincipalFragment"
+        android:name="com.example.proyecto_uf1.views.PrincipalFragment"
         android:label=""
         tools:layout="@layout/fragment_principal" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/diarioFragment"
-        android:name="com.example.proyecto_uf1.DiarioFragment"
+        android:name="com.example.proyecto_uf1.views.DiarioFragment"
         android:label=""
         tools:layout="@layout/fragment_diario" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/addEntradaFragment"
-        android:name="com.example.proyecto_uf1.AddEntradaFragment"
+        android:name="com.example.proyecto_uf1.views.AddEntradaFragment"
         android:label=""
         tools:layout="@layout/fragment_add_entrada" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/doctorFragment"
-        android:name="com.example.proyecto_uf1.DoctorFragment"
+        android:name="com.example.proyecto_uf1.views.DoctorFragment"
         android:label=""
         tools:layout="@layout/fragment_doctor" >
         <action
@@ -50,7 +50,7 @@
     </fragment>
     <fragment
         android:id="@+id/edadFragment"
-        android:name="com.example.proyecto_uf1.EdadFragment"
+        android:name="com.example.proyecto_uf1.views.EdadFragment"
         android:label="">
 
         <argument
@@ -59,7 +59,7 @@
     </fragment>
     <fragment
         android:id="@+id/randomCatFragment"
-        android:name="com.example.proyecto_uf1.RandomCatFragment"
+        android:name="com.example.proyecto_uf1.views.RandomCatFragment"
         android:label="" />
 
 </navigation>

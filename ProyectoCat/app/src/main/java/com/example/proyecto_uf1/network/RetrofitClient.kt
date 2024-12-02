@@ -1,4 +1,4 @@
-package com.example.proyecto_uf1
+package com.example.proyecto_uf1.network
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

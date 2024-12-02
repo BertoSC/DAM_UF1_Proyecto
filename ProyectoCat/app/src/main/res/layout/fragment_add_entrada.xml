@@ -69,7 +69,7 @@
                 android:id="@+id/btn_seleccionar_imagen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Seleccionar Imagen"
+                android:text="@string/select_img"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/grey"
                 android:textColor="@color/black"

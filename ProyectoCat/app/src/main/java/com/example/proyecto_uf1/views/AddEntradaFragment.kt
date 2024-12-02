@@ -1,4 +1,4 @@
-package com.example.proyecto_uf1
+package com.example.proyecto_uf1.views
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
@@ -13,19 +13,21 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContentProviderCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import java.io.File
-import java.io.FileOutputStream
-import java.io.InputStream
+import com.example.proyecto_uf1.R
+import com.example.proyecto_uf1.databinding.FragmentAddEntradaBinding
+import com.example.proyecto_uf1.models.DiarioEntry
+import com.example.proyecto_uf1.viewmodels.DiarioViewModel
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 class AddEntradaFragment : Fragment() {
+
+    var _binding: FragmentAddEntradaBinding? = null;
+    val binding get() = _binding!!
 
     val model: DiarioViewModel by viewModels(
         ownerProducer = { this.requireActivity() }
@@ -43,7 +45,10 @@ class AddEntradaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_add_entrada, container, false)
+        _binding = FragmentAddEntradaBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
+        //inflater.inflate(R.layout.fragment_add_entrada, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -65,7 +70,7 @@ class AddEntradaFragment : Fragment() {
                     selectedImageUri = Uri.parse(it) // Actualiza la URI con la ruta persistente
                 }
 
-                val imageView: ImageView = view.findViewById(R.id.imageView)
+                val imageView: ImageView = binding.imageView
                 imageView.setImageURI(selectedImageUri)
             }
         }
@@ -84,10 +89,9 @@ class AddEntradaFragment : Fragment() {
         }
 
 
-        val etTitulo: EditText = view.findViewById(R.id.et_titulo)
-        val etTexto: EditText = view.findViewById(R.id.et_texto)
-        val btnGuardar: Button = view.findViewById(R.id.btn_guardar)
-
+        val etTitulo: EditText = binding.etTitulo
+        val etTexto: EditText = binding.etTexto
+        val btnGuardar: Button = binding.btnGuardar
 
         btnGuardar.setOnClickListener {
             val titulo = etTitulo.text.toString()

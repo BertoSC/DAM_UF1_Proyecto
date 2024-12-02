@@ -1,5 +1,4 @@
-package com.example.proyecto_uf1
-import DiarioAdapter
+package com.example.proyecto_uf1.views
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +8,16 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.proyecto_uf1.R
+import com.example.proyecto_uf1.databinding.FragmentDiarioBinding
+import com.example.proyecto_uf1.models.DiarioEntry
+import com.example.proyecto_uf1.viewmodels.DiarioViewModel
 import com.google.android.material.imageview.ShapeableImageView
 
 class DiarioFragment : Fragment() {
+
+    var _binding: FragmentDiarioBinding?=null
+    val binding get() = _binding!!
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: DiarioAdapter
@@ -25,14 +31,17 @@ class DiarioFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_diario, container, false)
+        _binding = FragmentDiarioBinding.inflate(inflater, container, false)
+        var view = binding.root
+        return view
+        //return inflater.inflate(R.layout.fragment_diario, container, false)
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView = binding.recyclerView
         diarioEntries = mutableListOf()
         adapter = DiarioAdapter(diarioEntries) { entryToDelete ->
             model.eliminarEntrada(entryToDelete)

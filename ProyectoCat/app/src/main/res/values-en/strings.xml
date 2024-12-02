@@ -6,13 +6,14 @@
     <string name="add_titulo">Add a title</string>
     <string name="text_post">Write the text</string>
     <string name="add_entrada">Write a new post</string>
+    <string name="select_img">Select Image</string>
     <string name="btn_guardar">SAVE</string>
     <string name="btn_eliminar">DELETE</string>
 
     <string name="toastentrada">Please enter at least one title and one text.</string>
 
     <string name="doctor_felino">Feline Doctor</string>
-    <string name="add_doctor">Tell me the age of your kitten and \n I'll tell you a little something.</string>
+    <string name="add_doctor">Tell me the age of your kitten and Ill tell you a little something.</string>
     <string name="edad">Age in years</string>
     <string name="btn_edad">ADVICES </string>
 

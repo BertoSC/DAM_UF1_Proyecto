@@ -1,11 +1,11 @@
-package com.example.proyecto_uf1
+package com.example.proyecto_uf1.viewmodels
 import android.app.Application
 import android.net.Uri
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.proyecto_uf1.models.DiarioEntry
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers

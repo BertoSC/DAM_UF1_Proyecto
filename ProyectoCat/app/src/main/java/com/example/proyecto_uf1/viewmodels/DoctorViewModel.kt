@@ -1,8 +1,9 @@
-package com.example.proyecto_uf1
+package com.example.proyecto_uf1.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.proyecto_uf1.R
 
 class DoctorViewModel : ViewModel() {
     private val _edad = MutableLiveData<Int>()

@@ -1,4 +1,4 @@
-package com.example.proyecto_uf1
+package com.example.proyecto_uf1.models
 
 data class CatImageResponse(
     val id: String,
