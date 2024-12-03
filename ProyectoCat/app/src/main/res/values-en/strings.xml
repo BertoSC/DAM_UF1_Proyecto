@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Project_UF1</string>
+    <string name="firma">by BertoSC</string>
     <string name="diario_felino">Feline Diary</string>
 
     <string name="add_titulo">Add a title</string>
