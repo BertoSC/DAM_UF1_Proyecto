@@ -48,7 +48,7 @@ class AddEntradaFragment : Fragment() {
         _binding = FragmentAddEntradaBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
-        //inflater.inflate(R.layout.fragment_add_entrada, container, false)
+        //return inflater.inflate(R.layout.fragment_add_entrada, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -70,11 +70,10 @@ class AddEntradaFragment : Fragment() {
                     selectedImageUri = Uri.parse(it) // Actualiza la URI con la ruta persistente
                 }
 
-                val imageView: ImageView = binding.imageView
+                val imageView: ImageView =binding.imageView
                 imageView.setImageURI(selectedImageUri)
             }
         }
-
 
         // Configurar el botón para seleccionar la imagen
         //Este intent le dice al sistema operativo que queremos seleccionar algo
@@ -87,7 +86,6 @@ class AddEntradaFragment : Fragment() {
             intent.type = "image/*"
             imagePickerLauncher.launch(intent)
         }
-
 
         val etTitulo: EditText = binding.etTitulo
         val etTexto: EditText = binding.etTexto
@@ -106,5 +104,10 @@ class AddEntradaFragment : Fragment() {
                 Toast.makeText(requireContext(), getText(R.string.toastentrada), Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

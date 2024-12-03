@@ -39,4 +39,10 @@ class EdadFragment : Fragment() {
             imagenGato.setImageResource(model.asignarImg())
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

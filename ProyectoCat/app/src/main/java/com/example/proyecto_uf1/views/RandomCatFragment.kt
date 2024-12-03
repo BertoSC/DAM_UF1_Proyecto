@@ -55,4 +55,9 @@ class RandomCatFragment : Fragment() {
             viewModel.obtenerGatito()
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

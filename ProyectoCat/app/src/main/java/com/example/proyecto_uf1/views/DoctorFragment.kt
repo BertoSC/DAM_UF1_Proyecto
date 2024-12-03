@@ -51,5 +51,11 @@ class DoctorFragment : Fragment() {
                 Toast.makeText(requireContext(), getText(R.string.toastCampoVacio), Toast.LENGTH_SHORT).show()
             }
         }
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
