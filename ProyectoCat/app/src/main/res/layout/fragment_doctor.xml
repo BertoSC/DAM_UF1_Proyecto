@@ -6,7 +6,7 @@
     android:background="@color/creme"
     android:padding="16dp">
 
-    <!-- Contenedor de título y imagen -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
         android:background="@drawable/rounded_background"
         android:layout_margin="20dp">
 
-        <!-- Título -->
+
         <TextView
             android:id="@+id/doctor_title_tv"
             android:layout_width="wrap_content"
@@ -66,7 +66,6 @@
             />
 
 
-        <!-- Campo de entrada: Edad -->
         <EditText
             android:id="@+id/edad_tv"
             android:layout_width="match_parent"

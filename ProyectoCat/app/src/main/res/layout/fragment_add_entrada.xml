@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/creme">
 
-    <!-- Contenedor desplazable -->
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,7 +20,7 @@
             android:background="@drawable/rounded_background"
             android:layout_margin="40dp">
 
-            <!-- Título -->
+
             <TextView
                 android:id="@+id/add_entrada_tv"
                 android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
                 android:layout_gravity="center" />
 
 
-            <!-- Campo de entrada: Título -->
+
             <EditText
                 android:id="@+id/et_titulo"
                 android:layout_width="match_parent"
@@ -43,7 +43,7 @@
                 android:textSize="16sp"
                 android:inputType="text" />
 
-            <!-- Campo de entrada: Texto -->
+
             <EditText
                 android:id="@+id/et_texto"
                 android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                 android:inputType="textMultiLine"
                 android:scrollbars="vertical" />
 
-            <!-- ImageView para mostrar la imagen seleccionada -->
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
@@ -64,7 +64,7 @@
                 android:scaleType="centerCrop"
                 />
 
-            <!-- Botón para seleccionar una imagen -->
+
             <Button
                 android:id="@+id/btn_seleccionar_imagen"
                 android:layout_width="match_parent"
@@ -91,7 +91,7 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Botón fijo en la parte inferior -->
+
 
 
 </FrameLayout>

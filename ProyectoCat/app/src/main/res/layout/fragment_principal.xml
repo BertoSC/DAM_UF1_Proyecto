@@ -37,45 +37,7 @@
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
                 android:src="@drawable/logo" />
-<!--
-            <LinearLayout
-                android:id="@+id/iconosPrincipal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
 
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:id="@+id/iconodiar"
-                    android:layout_width="118dp"
-                    android:layout_height="80dp"
-                    android:backgroundTint="@color/white"
-                    android:scaleType="centerInside"
-                    android:contentDescription="iconodediario"
-                    android:src="@drawable/diaryicon" />
-
-                <ImageButton
-                    android:id="@+id/iconodoc"
-                    android:layout_width="115dp"
-                    android:layout_height="80dp"
-                    android:backgroundTint="@color/white"
-                    android:scaleType="fitCenter"
-                    android:contentDescription="iconodedoctor"
-                    android:src="@drawable/doctoricon" />
-
-                <ImageButton
-                    android:id="@+id/iconoTabl"
-                    android:layout_width="wrap_content"
-                    android:layout_height="80dp"
-                    android:backgroundTint="@color/white"
-                    android:scaleType="fitCenter"
-                    android:contentDescription="iconodeanuncios"
-                    android:src="@drawable/tablonicon" />
-
-            </LinearLayout>
--->
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
@@ -96,6 +58,3 @@
     </LinearLayout>
 
 </FrameLayout>
-<!--
-</ScrollView>
--->
