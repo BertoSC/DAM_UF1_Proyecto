@@ -1,4 +1,5 @@
 package com.example.proyecto_uf1.views
+import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.example.proyecto_uf1.databinding.FragmentDiarioBinding
 import com.example.proyecto_uf1.models.DiarioEntry
 import com.example.proyecto_uf1.viewmodels.DiarioViewModel
 import com.google.android.material.imageview.ShapeableImageView
+import java.util.Locale
 
 class DiarioFragment : Fragment() {
 
@@ -60,9 +62,16 @@ class DiarioFragment : Fragment() {
 
         model.entradas.observe(viewLifecycleOwner) { lista ->
             diarioEntries.clear()
-            diarioEntries.addAll(lista)
+
+            val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            val listaOrdenada = lista.sortedByDescending { entrada ->
+                dateFormat.parse(entrada.fecha)
+            }
+
+            diarioEntries.addAll(listaOrdenada)
             adapter.notifyDataSetChanged()
         }
+
 
         val myFabImage: ShapeableImageView = view.findViewById(R.id.my_fab_image)
         myFabImage.setOnClickListener {
