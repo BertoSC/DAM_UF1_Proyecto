@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("androidx.navigation.safeargs")
+    kotlin("plugin.serialization") version "1.9.0"
+
     //id("kotlin-kapt")
 }
 
@@ -42,9 +44,19 @@ android {
 }
 
 dependencies {
+    // supabase
+    implementation(platform("io.github.jan-tennert.supabase:bom:3.1.4"))
+    implementation("io.github.jan-tennert.supabase:auth-kt")
+    implementation("io.github.jan-tennert.supabase:postgrest-kt")
+    implementation("io.github.jan-tennert.supabase:realtime-kt")
+    implementation("io.github.jan-tennert.supabase:storage-kt")
+    implementation("io.ktor:ktor-client-android:3.1.2")
+
+    // glide
     implementation ("com.github.bumptech.glide:glide:4.15.1")
     //kapt ("com.github.bumptech.glide:compiler:4.15.1")
 
+    // retrofit, gson, y herramientas android (drawer, navigation ui, etc)
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.google.code.gson:gson:2.10.1")
