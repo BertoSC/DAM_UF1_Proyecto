@@ -1,11 +1,14 @@
 package com.example.proyecto_uf1.views
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -14,6 +17,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.proyecto_uf1.R
 import com.example.proyecto_uf1.databinding.ActivityMainBinding
+import com.example.proyecto_uf1.login.LoginActivity
+import com.example.proyecto_uf1.network.SupabaseClient
+import io.github.jan.supabase.auth.auth
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -52,6 +59,24 @@ class MainActivity : AppCompatActivity() {
 
         val navigationView = binding.navSide
         navigationView.setupWithNavController(navController)
+
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_logout -> {
+                    logout()
+                    true
+                }
+                else -> {
+                    // Navegación normal con NavController
+                    NavigationUI.onNavDestinationSelected(menuItem, navController)
+                    binding.drawerLayout.closeDrawers()
+                    true
+                }
+            }
+        }
+
+
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -64,5 +89,22 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.onNavDestinationSelected(item, navController)
         return super.onOptionsItemSelected(item)
     }
+
+    private fun logout() {
+        lifecycleScope.launch {
+            try {
+                SupabaseClient.supabase.auth.signOut()
+
+                val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+
+            } catch (e: Exception) {
+                Toast.makeText(this@MainActivity, "Error al cerrar sesión", Toast.LENGTH_SHORT).show()
+                e.printStackTrace()
+            }
+        }
+    }
+
 
 }

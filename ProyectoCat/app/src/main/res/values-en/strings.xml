@@ -3,6 +3,7 @@
     <string name="app_name">Project_UF1</string>
     <string name="firma">by BertoSC</string>
     <string name="diario_felino">Feline Diary</string>
+    <string name="cerrar_sesion">Log out</string>
 
     <string name="add_titulo">Add a title</string>
     <string name="text_post">Write the text</string>
