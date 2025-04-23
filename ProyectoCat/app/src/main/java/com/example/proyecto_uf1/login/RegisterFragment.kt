@@ -42,6 +42,8 @@ class RegisterFragment : Fragment() {
             val confirmPassword = binding.confirmPasswordEditText.text.toString().trim()
             val acceptedPrivacy = binding.privacyPolicyCheckbox.isChecked
 
+
+            // Configuración de validaciones de campos
             if (mail.isEmpty() || pass.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(requireContext(), "Rellena todos los campos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -57,7 +59,7 @@ class RegisterFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            // Registro con Supabase
+            // Registro de usuario usando supabase
             lifecycleScope.launch {
                 try {
                     SupabaseClient.supabase.auth.signUpWith(Email) {
@@ -67,7 +69,6 @@ class RegisterFragment : Fragment() {
 
                     Toast.makeText(requireContext(), "Registro exitoso. Inicia sesión.", Toast.LENGTH_SHORT).show()
 
-                    // Volver al LoginFragment
                     findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
 
                 } catch (e: RestException) {
@@ -79,7 +80,6 @@ class RegisterFragment : Fragment() {
             }
         }
 
-        // Enlace opcional para volver al login
         binding.privacyPolicyLink.setOnClickListener {
             Toast.makeText(requireContext(), "Mostrar política de privacidad", Toast.LENGTH_SHORT).show()
         }

@@ -8,6 +8,6 @@ import retrofit2.http.Header
 interface CatApiService {
     @GET("images/search?has_breeds=1")
     fun getRandomCatImage(
-        @Header("x-api-key") apiKey: String = "APIKEY"
+        @Header("x-api-key") apiKey: String = "API KEY"
     ): Call<List<CatImageResponse>>
 }

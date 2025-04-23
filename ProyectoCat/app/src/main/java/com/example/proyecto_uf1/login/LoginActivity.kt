@@ -25,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
-        // Verificar si hay sesión activa
+        // Verificar si hay sesión activa???
         lifecycleScope.launch {
             val session = SupabaseClient.supabase.auth.currentSessionOrNull()
 

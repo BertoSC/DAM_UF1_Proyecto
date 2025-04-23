@@ -70,7 +70,7 @@ class AddEntradaFragment : Fragment() {
                     selectedImageUri = Uri.parse(it) // Actualiza la URI con la ruta persistente
                 }
 
-                val imageView: ImageView =binding.imageView
+                val imageView: ImageView = binding.imageView
                 imageView.setImageURI(selectedImageUri)
             }
         }

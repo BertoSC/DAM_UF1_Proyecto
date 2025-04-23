@@ -33,6 +33,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Login de usuario, validaciones y cambio a actividad principal para login exitoso
         binding.loginButton.setOnClickListener {
             val email = binding.emailEditText.text.toString().trim()
             val password = binding.passwordEditText.text.toString().trim()
@@ -51,7 +52,6 @@ class LoginFragment : Fragment() {
 
                     Toast.makeText(requireContext(), "Login exitoso", Toast.LENGTH_SHORT).show()
 
-                    // Ir a MainActivity
                     val intent = Intent(requireContext(), MainActivity::class.java)
                     startActivity(intent)
                     requireActivity().finish()
@@ -63,7 +63,6 @@ class LoginFragment : Fragment() {
             }
         }
 
-        // Navegar al RegisterFragment
         binding.registerLink.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }

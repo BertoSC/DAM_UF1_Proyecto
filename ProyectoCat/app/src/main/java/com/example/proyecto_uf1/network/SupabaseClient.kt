@@ -7,9 +7,10 @@ import io.github.jan.supabase.realtime.Realtime
 import io.github.jan.supabase.storage.Storage
 
 object SupabaseClient {
+
     val supabase = createSupabaseClient(
-        supabaseUrl = "my url",
-        supabaseKey = "my api key"
+        supabaseUrl = "URL",
+        supabaseKey = "API KEY"
     ){
         install(Auth)
         install(Postgrest)
@@ -17,3 +18,4 @@ object SupabaseClient {
         install(Realtime)
     }
 }
+

@@ -3,6 +3,7 @@ package com.example.proyecto_uf1.views
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -40,42 +41,43 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Configurar barra de herramientas. Se crea variable y se recupera la toolbar
+        // Configuración de la barra de herramientas y el menú lateral
         val toolbar = binding.toolbar
-        // se indica que es la que será por defecto
         setSupportActionBar(toolbar)
-        // ahora se recupera el drawer que será el side menu
         val drawerLayout = binding.drawerLayout
-        //se recupera el host de navegacion
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.container_fragment) as NavHostFragment
-
         val navController = navHostFragment.navController
-
-        // Configurar AppBarConfiguration con DrawerLayout
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
-
-        // Configurar la barra de herramientas con NavController
         setupActionBarWithNavController(navController, appBarConfiguration)
-
         val navigationView = binding.navSide
         navigationView.setupWithNavController(navController)
 
+        // Configuración del correo del usuario logeado en el drawer para testear sesión
+        val headerView = navigationView.getHeaderView(0)
+        val userEmailText = headerView.findViewById<TextView>(R.id.user_email_text)
+        val user = SupabaseClient.supabase.auth.currentUserOrNull()
+        if (user != null) {
+            Toast.makeText(this, "Usuario: ${user.email}", Toast.LENGTH_SHORT).show()
+            println(user)
+            userEmailText.text = user.email
+        } else {
+            Toast.makeText(this, "No hay usuario logueado", Toast.LENGTH_SHORT).show()
+        }
+
+        // Configuración de la opción Logout en el menú lateral (revisar)
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_logout -> {
                     logout()
                     true
                 }
-                else -> {
-                    // Navegación normal con NavController
+                else -> { // preguntar a Sabela o Pepe por esto
                     NavigationUI.onNavDestinationSelected(menuItem, navController)
                     binding.drawerLayout.closeDrawers()
                     true
                 }
             }
         }
-
-
 
     }
 
