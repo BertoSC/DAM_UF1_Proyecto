@@ -89,6 +89,10 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val navController = findNavController(R.id.container_fragment)
         NavigationUI.onNavDestinationSelected(item, navController)
+        if (item.itemId==R.id.nav_logout){
+            logout()
+            return true
+        }
         return super.onOptionsItemSelected(item)
     }
 

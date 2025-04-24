@@ -20,7 +20,7 @@ class RandomCatViewModel : ViewModel() {
     private val _catImageUrl = MutableLiveData<String?>()
     val catImageUrl: LiveData<String?> get() = _catImageUrl
 
-    private val _catBreedInfo = MutableLiveData<String?>()  // Información de la raza
+    private val _catBreedInfo = MutableLiveData<String?>()
     val catBreedInfo: LiveData<String?> get() = _catBreedInfo
 
     private val _error = MutableLiveData<String?>()
