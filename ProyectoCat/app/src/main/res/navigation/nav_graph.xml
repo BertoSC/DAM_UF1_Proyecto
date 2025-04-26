@@ -37,6 +37,10 @@
         <action
             android:id="@+id/action_addEntradaFragment_to_diarioFragment"
             app:destination="@id/diarioFragment" />
+        <argument
+            android:name="entrada"
+            app:argType="com.example.proyecto_uf1.models.DiarioEntry"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/doctorFragment"

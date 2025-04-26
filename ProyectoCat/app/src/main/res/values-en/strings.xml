@@ -11,6 +11,7 @@
     <string name="select_img">Select Image</string>
     <string name="btn_guardar">SAVE</string>
     <string name="btn_eliminar">DELETE</string>
+    <string name="btn_editar">EDIT</string>
 
     <string name="toastentrada">Please enter at least one title and one text.</string>
 

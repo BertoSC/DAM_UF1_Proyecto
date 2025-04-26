@@ -1,7 +1,10 @@
 package com.example.proyecto_uf1.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+
 
 // molde clase "pollo" para los datos básicos del diario (pendiente de añadir más)
 
@@ -16,6 +19,7 @@ data class DiarioEntry(
 // Versión para supabase
 
 @Serializable
+@Parcelize
 data class DiarioEntry(
     val id: String? = null,
     @SerialName("id_usuario")
@@ -25,4 +29,4 @@ data class DiarioEntry(
     val fecha: String? = null,
     @SerialName("imagen_uri")
     val imagenUri: String? = null
-)
+) : Parcelable

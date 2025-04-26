@@ -15,11 +15,17 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.example.proyecto_uf1.R
 import com.example.proyecto_uf1.databinding.FragmentAddEntradaBinding
 import com.example.proyecto_uf1.models.DiarioEntry
+import com.example.proyecto_uf1.network.SupabaseClient
+import com.example.proyecto_uf1.repositories.DiarioRepository
 import com.example.proyecto_uf1.viewmodels.DiarioViewModel
+import io.github.jan.supabase.auth.auth
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -41,6 +47,8 @@ class AddEntradaFragment : Fragment() {
     private lateinit var imagePickerLauncher: ActivityResultLauncher<Intent>
     private var selectedImageUri: Uri? = null
 
+    private var entradaAEditar: DiarioEntry? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -53,7 +61,7 @@ class AddEntradaFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val currentDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
+        val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
 
         // Inicializar el ActivityResultLauncher
         // usuario selecciona una imagen de la galería,
@@ -65,13 +73,11 @@ class AddEntradaFragment : Fragment() {
         imagePickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 selectedImageUri = result.data?.data
-                val savedImagePath = selectedImageUri?.let { model.guardarImagenEnAlmacenamiento(it) }
-                savedImagePath?.let {
-                    selectedImageUri = Uri.parse(it) // Actualiza la URI con la ruta persistente
-                }
 
-                val imageView: ImageView = binding.imageView
-                imageView.setImageURI(selectedImageUri)
+                // Mostrar la imagen en la vista para que el usuario vea la previsualización
+                selectedImageUri?.let {
+                    binding.imageView.setImageURI(it)
+                }
             }
         }
 
@@ -91,17 +97,61 @@ class AddEntradaFragment : Fragment() {
         val etTexto: EditText = binding.etTexto
         val btnGuardar: Button = binding.btnGuardar
 
+        // En el caso de que tengamos entrada a editar, se setean los campos
+
+        entradaAEditar = AddEntradaFragmentArgs.fromBundle(requireArguments()).entrada
+
+        entradaAEditar?.let { entrada ->
+            binding.etTitulo.setText(entrada.titulo)
+            binding.etTexto.setText(entrada.texto)
+
+            entrada.imagenUri?.let { uri ->
+                Glide.with(requireContext())
+                    .load(uri)
+                    .into(binding.imageView)
+            }
+        }
+
         btnGuardar.setOnClickListener {
             val titulo = etTitulo.text.toString()
             val texto = etTexto.text.toString()
 
             if (titulo.isNotEmpty() && texto.isNotEmpty()) {
-                val imagenUriString = selectedImageUri?.toString()
-                val nuevaEntrada = DiarioEntry(titulo, texto, currentDate, imagenUriString)
-                model.agregarEntrada(nuevaEntrada)
-                findNavController().popBackStack()
+                val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+
+                viewLifecycleOwner.lifecycleScope.launch {
+                    val userId = SupabaseClient.supabase.auth.currentUserOrNull()?.id
+
+                    if (userId != null) {
+                        var imageUrl: String? = null
+
+                        selectedImageUri?.let { uri ->
+                            imageUrl = DiarioRepository(requireContext()).subirImagen(uri)
+                        }
+
+                        if (entradaAEditar == null) {
+                            val nuevaEntrada = DiarioEntry(
+                                idUsuario = userId,
+                                titulo = titulo,
+                                texto = texto,
+                                fecha = currentDate,
+                                imagenUri = imageUrl
+                            )
+                            model.agregarEntrada(nuevaEntrada)
+                        } else {
+                            val entradaEditada = entradaAEditar!!.copy(
+                                titulo = titulo,
+                                texto = texto,
+                                imagenUri = imageUrl ?: entradaAEditar!!.imagenUri
+                            )
+                            model.editarEntrada(entradaEditada)
+                        }
+
+                        findNavController().popBackStack()
+                    }
+                }
             } else {
-                Toast.makeText(requireContext(), getText(R.string.toastentrada), Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Completa todos los campos", Toast.LENGTH_SHORT).show()
             }
         }
     }

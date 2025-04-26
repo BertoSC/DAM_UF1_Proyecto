@@ -23,7 +23,7 @@ class DiarioRepository(private val context: Context) {
             inputStream?.let {
                 val byteArray = inputStream.readBytes()
                 var bucket = SupabaseClient.supabase.storage.from("catstorage")
-                    bucket.upload(nombre, byteArray)
+                bucket.upload(nombre, byteArray)
 
                 return@withContext supabase.storage.from("catstorage").publicUrl(nombre)
 
@@ -44,7 +44,7 @@ class DiarioRepository(private val context: Context) {
             val userId = SupabaseClient.supabase.auth.currentUserOrNull()?.id ?: return@withContext emptyList()
 
             SupabaseClient.supabase
-                .from("ENTRADA")
+                .from("entrada")
                 .select {
                     filter {
                         eq("id_usuario", userId)
@@ -54,14 +54,22 @@ class DiarioRepository(private val context: Context) {
                 }
                 .decodeList<DiarioEntry>()
         }
-    }
 
-    suspend fun eliminarEntrada(id: String) = withContext(Dispatchers.IO) {
-        SupabaseClient.supabase.from("entrada")
-            .delete {
-                filter{
-                    eq("id", id)
+    suspend fun borrarEntrada(entry: DiarioEntry) = withContext(Dispatchers.IO) {
+        try {
+            entry.imagenUri?.let { eliminarImagen(it) }
+
+            entry.id?.let { id ->
+                SupabaseClient.supabase.from("entrada")
+                    .delete {
+                        filter {
+                            eq("id", id)
+                        }
+                    }
             }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     suspend fun editarEntrada(entry: DiarioEntry) = withContext(Dispatchers.IO) {
@@ -72,4 +80,17 @@ class DiarioRepository(private val context: Context) {
                 }
             }
     }
+
+    suspend fun eliminarImagen(imagenUrl: String) = withContext(Dispatchers.IO) {
+        try {
+
+            val nombreArchivo = imagenUrl.substringAfterLast("/")
+
+            SupabaseClient.supabase.storage.from("catstorage")
+                .delete(listOf(nombreArchivo))
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
 }
+

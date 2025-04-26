@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.proyecto_uf1.models.DiarioEntry
 import com.example.proyecto_uf1.R
 
@@ -16,7 +17,9 @@ import com.example.proyecto_uf1.R
 // esta funciona como un callback que notifica al fragment o viewmodel cuando se hace clic en el boton de eliminar
 //para ejecutar la accion
 
-class DiarioAdapter(private val entradas: List<DiarioEntry>, private val clicEliminar: (DiarioEntry) -> Unit
+class DiarioAdapter(private val entradas: List<DiarioEntry>,
+                    private val clicEliminar: (DiarioEntry) -> Unit,
+                    private val clicEditar: (DiarioEntry) -> Unit
 ):
     RecyclerView.Adapter<DiarioAdapter.DiarioViewHolder>() {
 
@@ -53,15 +56,18 @@ class DiarioAdapter(private val entradas: List<DiarioEntry>, private val clicEli
     // cada vez que el RV necesita mostrar un item llama a esta funcion par anelazar los datos
 
     override fun onBindViewHolder(holder: DiarioViewHolder, position: Int) {
-        // Enlazar datos a las vistas
         val entry = entradas[position]
         holder.fecha.text = entry.fecha
         holder.titulo.text = entry.titulo
         holder.texto.text = entry.texto
-        // Mostrar la imagen si la URI no es nula
+
         if (entry.imagenUri != null) {
             holder.imagen.visibility = View.VISIBLE
-            holder.imagen.setImageURI(Uri.parse(entry.imagenUri)) // Convertir el String URI a Uri
+
+            Glide.with(holder.itemView.context)
+                .load(entry.imagenUri)
+                .into(holder.imagen)
+
         } else {
             holder.imagen.visibility = View.GONE
         }
@@ -70,6 +76,9 @@ class DiarioAdapter(private val entradas: List<DiarioEntry>, private val clicEli
             clicEliminar(entry)
         }
 
+        holder.itemView.findViewById<Button>(R.id.btn_editar).setOnClickListener {
+            clicEditar(entry)
+        }
     }
 
     // devuelve el numero de elementos que hay en la lsita de datos para que el RV sepa

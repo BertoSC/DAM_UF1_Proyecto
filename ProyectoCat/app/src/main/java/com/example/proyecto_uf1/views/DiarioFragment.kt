@@ -45,9 +45,15 @@ class DiarioFragment : Fragment() {
 
         recyclerView = binding.recyclerView
         diarioEntries = mutableListOf()
-        adapter = DiarioAdapter(diarioEntries) { entryToDelete ->
-            model.eliminarEntrada(entryToDelete)
-        }
+        adapter = DiarioAdapter(diarioEntries,
+            clicEliminar = { entryToDelete ->
+                model.eliminarEntrada(entryToDelete)
+            },
+            clicEditar = { entryToEdit ->
+                val action = DiarioFragmentDirections.actionDiarioFragmentToAddEntradaFragment(entryToEdit)
+                findNavController().navigate(action)
+            }
+        )
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
 
@@ -63,7 +69,7 @@ class DiarioFragment : Fragment() {
         model.entradas.observe(viewLifecycleOwner) { lista ->
             diarioEntries.clear()
 
-            val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
             val listaOrdenada = lista.sortedByDescending { entrada ->
                 dateFormat.parse(entrada.fecha)
             }
@@ -75,7 +81,7 @@ class DiarioFragment : Fragment() {
 
         val myFabImage: ShapeableImageView = view.findViewById(R.id.my_fab_image)
         myFabImage.setOnClickListener {
-            val action = DiarioFragmentDirections.actionDiarioFragmentToAddEntradaFragment()
+            val action = DiarioFragmentDirections.actionDiarioFragmentToAddEntradaFragment(null)
             findNavController().navigate(action)
         }
     }
