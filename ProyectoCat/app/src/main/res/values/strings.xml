@@ -13,6 +13,7 @@
     <string name="btn_guardar">GUARDAR</string>
     <string name="btn_eliminar">ELIMINAR</string>
     <string name="btn_editar">EDITAR</string>
+    <string name="filtro_entrada">Busca una entrada</string>
 
     <string name="toastentrada">Por favor, introduce al menos un título y un texto</string>
 

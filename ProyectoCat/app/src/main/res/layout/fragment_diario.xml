@@ -48,7 +48,7 @@
         android:id="@+id/etBuscarEntrada"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Buscar entrada..."
+        android:hint="@string/filtro_entrada"
         android:padding="16dp"
         android:background="@drawable/rounded_background"
         android:layout_marginTop="10dp"
