@@ -85,6 +85,7 @@ class DiarioAdapter(private val entradas: List<DiarioEntry>,
     // cuantos items debe mostrar
     override fun getItemCount(): Int = entradas.size
 
+
     // El RecyclerView solicita la cantidad de ítems que necesita mostrar (getItemCount()).
     // Si el RecyclerView necesita mostrar un nuevo ítem, llama a onCreateViewHolder() para crear un nuevo ViewHolder.
     //Luego, llama a onBindViewHolder() para asignar los datos del modelo (título, texto, etc.) a las vistas dentro del ViewHolder.

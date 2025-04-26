@@ -1,6 +1,8 @@
 package com.example.proyecto_uf1.views
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +26,7 @@ class DiarioFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: DiarioAdapter
     private lateinit var diarioEntries: MutableList<DiarioEntry>
+    private var diarioEntriesOriginal: MutableList<DiarioEntry> = mutableListOf()
 
     val model: DiarioViewModel by viewModels(
         ownerProducer = { this.requireActivity() }
@@ -67,24 +70,54 @@ class DiarioFragment : Fragment() {
 
 
         model.entradas.observe(viewLifecycleOwner) { lista ->
+            diarioEntriesOriginal.clear()
+            diarioEntriesOriginal.addAll(lista)
+
             diarioEntries.clear()
+            diarioEntries.addAll(lista.sortedByDescending { entrada -> entrada.fecha })
 
-            val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-            val listaOrdenada = lista.sortedByDescending { entrada ->
-                dateFormat.parse(entrada.fecha)
-            }
-
-            diarioEntries.addAll(listaOrdenada)
             adapter.notifyDataSetChanged()
         }
 
-
+        // Configuración del FAB para añadir entreda
         val myFabImage: ShapeableImageView = view.findViewById(R.id.my_fab_image)
         myFabImage.setOnClickListener {
             val action = DiarioFragmentDirections.actionDiarioFragmentToAddEntradaFragment(null)
             findNavController().navigate(action)
         }
+
+        // Configuración del EditText para el filtro del RV
+
+        val etBuscar = binding.etBuscarEntrada
+        etBuscar.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                filtrarEntradas(s.toString())
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
+
     }
+
+    // Condiciones del filtro
+    private fun filtrarEntradas(query: String) {
+            val listaFiltrada = if (query.isEmpty()) {
+                diarioEntriesOriginal
+            } else {
+                diarioEntriesOriginal.filter { entrada ->
+                    entrada.titulo.contains(query, ignoreCase = true) ||
+                            entrada.texto.contains(query, ignoreCase = true) || entrada.fecha!!.contains(query, ignoreCase = true)
+                }
+            }
+
+            diarioEntries.clear()
+            diarioEntries.addAll(listaFiltrada)
+            adapter.notifyDataSetChanged()
+        }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
