@@ -38,7 +38,7 @@ class RandomCatFragment : Fragment() {
 
         catImageView = binding.imagenRandom
         fetchButton = binding.btnRandom
-        breedInfoTextView = binding.catBreedInfo  // El TextView para la raza
+        breedInfoTextView = binding.catBreedInfo
 
         viewModel.catImageUrl.observe(viewLifecycleOwner) { url ->
             url?.let {
