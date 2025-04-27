@@ -15,6 +15,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
 
+
 // modelo de datos: extiende de AndroidViewModel y permite acceder al contexto global de la aplicación
 // para operaciones de persistencia y manejo de recursos de sistema (archivos e imágenes)
 
