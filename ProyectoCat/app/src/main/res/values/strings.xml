@@ -5,6 +5,7 @@
     <string name="cerrar_sesion">Cerrar sesión</string>
 
     <string name="diario_felino">Diario Felino</string>
+    <string name="tablon_felino">Tablón Felino</string>
 
     <string name="add_titulo">Añade un título</string>
     <string name="text_post">Aquí escribe el texto</string>
@@ -14,6 +15,12 @@
     <string name="btn_eliminar">ELIMINAR</string>
     <string name="btn_editar">EDITAR</string>
     <string name="filtro_entrada">Busca una entrada</string>
+    <string name="filtro_anuncios">Busca por localidad</string>
+    <string name="tus_anuncios">Tus anuncios</string>
+    <string name="add_anuncio">Escribe tu anuncio</string>
+    <string name="localidad_anuncio">Indica la localidad</string>
+    <string name="texto_anuncio">Escribe el texto</string>
+
 
     <string name="toastentrada">Por favor, introduce al menos un título y un texto</string>
 
@@ -84,5 +91,7 @@
     <string name="randomTexto">Pulsa el botón para ver a un michi aleatorio</string>
     <string name="randomBoton">BUSCAR GATITO</string>
     <string name="errorAPI">UPS, hubo un michierror</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

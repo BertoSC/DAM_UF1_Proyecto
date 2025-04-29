@@ -3,6 +3,8 @@
     <string name="app_name">Project_UF1</string>
     <string name="firma">by BertoSC</string>
     <string name="diario_felino">Feline Diary</string>
+    <string name="tablon_felino">Feline Board</string>
+
     <string name="cerrar_sesion">Log out</string>
 
     <string name="add_titulo">Add a title</string>
@@ -13,6 +15,11 @@
     <string name="btn_eliminar">DELETE</string>
     <string name="btn_editar">EDIT</string>
     <string name="filtro_entrada">Search an entry</string>
+    <string name="filtro_anuncios">Search by location</string>
+    <string name="tus_anuncios">Your posts</string>
+    <string name="add_anuncio">Write your post</string>
+    <string name="localidad_anuncio">Location</string>
+    <string name="texto_anuncio">Add your text</string>
 
     <string name="toastentrada">Please enter at least one title and one text.</string>
 

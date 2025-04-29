@@ -33,8 +33,20 @@ class AnuncioViewModel (application: Application) : AndroidViewModel(application
         viewModelScope.launch {
             try {
                 val lista = repository.obtenerAnuncios()
-                _anuncios.value = lista
+                _anuncios.postValue(lista.toMutableList())
             } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    fun cargarAnunciosUsuario () {
+        viewModelScope.launch {
+            try {
+                val lista = repository.obtenerAnunciosUsuario()
+                _anuncios.postValue(lista.toMutableList())
+
+            } catch (e: Exception){
                 e.printStackTrace()
             }
         }

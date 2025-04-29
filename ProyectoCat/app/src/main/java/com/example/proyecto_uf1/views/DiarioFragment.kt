@@ -1,5 +1,4 @@
 package com.example.proyecto_uf1.views
-import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -12,11 +11,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyecto_uf1.R
+import com.example.proyecto_uf1.adapters.DiarioAdapter
 import com.example.proyecto_uf1.databinding.FragmentDiarioBinding
 import com.example.proyecto_uf1.models.DiarioEntry
 import com.example.proyecto_uf1.viewmodels.DiarioViewModel
 import com.google.android.material.imageview.ShapeableImageView
-import java.util.Locale
 
 class DiarioFragment : Fragment() {
 

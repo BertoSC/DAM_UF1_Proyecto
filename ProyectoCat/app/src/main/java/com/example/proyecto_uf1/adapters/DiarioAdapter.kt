@@ -1,6 +1,5 @@
-package com.example.proyecto_uf1.views
+package com.example.proyecto_uf1.adapters
 
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

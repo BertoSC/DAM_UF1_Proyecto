@@ -30,6 +30,20 @@ class AnuncioRepository (private val context: Context) {
             .decodeList<Anuncio>()
     }
 
+    suspend fun obtenerAnunciosUsuario(): List<Anuncio> = withContext(Dispatchers.IO){
+            val userId = SupabaseClient.supabase.auth.currentUserOrNull()?.id ?: return@withContext emptyList()
+
+            SupabaseClient.supabase
+                .from("anuncio")
+                .select {
+                    filter {
+                        eq("id_usuario", userId)
+                   }
+                }
+                .decodeList<Anuncio>()
+
+    }
+
     suspend fun eliminarAnuncio(anuncio: Anuncio) = withContext(Dispatchers.IO) {
 
         anuncio.id?.let{ id ->
