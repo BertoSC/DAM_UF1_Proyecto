@@ -18,7 +18,7 @@ import kotlinx.coroutines.withContext
 class AnuncioRepository (private val context: Context) {
 
     suspend fun insertarAnuncio(anuncio: Anuncio) = withContext(Dispatchers.IO) {
-        SupabaseClient.supabase.from("entrada")
+        SupabaseClient.supabase.from("anuncio")
             .insert(anuncio)
     }
 

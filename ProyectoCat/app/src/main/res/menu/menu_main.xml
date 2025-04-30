@@ -27,12 +27,22 @@
         </item>
 
         <item
+        android:id="@+id/tablonFragment"
+        android:icon="@drawable/tablonfelinoicono"
+        android:title="@string/tablon_felino"
+        app:showAsAction="always" >
+
+    </item>
+
+        <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/cerrarsesion"
             android:title="@string/cerrar_sesion"
             app:showAsAction="always" >
 
         </item>
+
+
 
     </group>
 </menu>

@@ -65,5 +65,26 @@
         android:id="@+id/randomCatFragment"
         android:name="com.example.proyecto_uf1.views.RandomCatFragment"
         android:label="" />
+    <fragment
+        android:id="@+id/tablonFragment"
+        android:name="com.example.proyecto_uf1.views.TablonFragment"
+        android:label="" >
+        <action
+            android:id="@+id/action_tablonFragment_to_addAnuncioFragment"
+            app:destination="@id/addAnuncioFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/addAnuncioFragment"
+        android:name="com.example.proyecto_uf1.views.AddAnuncioFragment"
+        android:label="" >
+        <action
+            android:id="@+id/action_addAnuncioFragment_to_tablonFragment"
+            app:destination="@id/tablonFragment" />
+        <argument
+            android:name="anuncio"
+            app:argType="com.example.proyecto_uf1.models.Anuncio"
+            app:nullable="true" />
+    </fragment>
 
 </navigation>

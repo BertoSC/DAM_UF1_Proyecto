@@ -48,8 +48,8 @@ class TablonFragment : Fragment() {
         adapter = TablonAdapter(listaVisible, userId,
             clicEliminar = { anuncio -> model.eliminarAnuncio(anuncio) },
             clicEditar = { anuncio ->
-                //val action = TablonFragmentDirections.actionTablonFragmentToAddAnuncioFragment(anuncio)
-                //findNavController().navigate(action)
+                val action = TablonFragmentDirections.actionTablonFragmentToAddAnuncioFragment(anuncio)
+                findNavController().navigate(action)
             }
         )
 
@@ -77,8 +77,8 @@ class TablonFragment : Fragment() {
         }
 
         binding.iconoAnadirAnuncio.setOnClickListener {
-            //val action = TablonFragmentDirections.actionTablonFragmentToAddAnuncioFragment(null)
-            //findNavController().navigate(action)
+            val action = TablonFragmentDirections.actionTablonFragmentToAddAnuncioFragment(null)
+            findNavController().navigate(action)
         }
 
         model.cargarAnuncios()
