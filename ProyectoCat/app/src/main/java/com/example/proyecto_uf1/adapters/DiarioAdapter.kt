@@ -55,6 +55,15 @@ class DiarioAdapter(private val entradas: List<DiarioEntry>,
     // cada vez que el RV necesita mostrar un item llama a esta funcion par anelazar los datos
 
     override fun onBindViewHolder(holder: DiarioViewHolder, position: Int) {
+        holder.itemView.alpha = 0f // Inicia transparente
+
+        // Animación de fade-in con retraso progresivo
+        holder.itemView.animate()
+            .alpha(1f)
+            .setDuration(300L)
+            .setStartDelay(100L * position) // Cada item se retrasa 100ms más que el anterior
+            .start()
+
         val entry = entradas[position]
         holder.fecha.text = entry.fecha
         holder.titulo.text = entry.titulo

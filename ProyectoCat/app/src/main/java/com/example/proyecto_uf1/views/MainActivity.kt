@@ -2,6 +2,7 @@ package com.example.proyecto_uf1.views
 
 import android.content.Intent
 import android.os.Bundle
+import android.transition.Fade
 import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        window.enterTransition = Fade()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

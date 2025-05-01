@@ -30,6 +30,15 @@ class TablonAdapter (private val anuncios: List<Anuncio>,
     }
 
     override fun onBindViewHolder(holder: TablonViewHolder, position: Int){
+        holder.itemView.alpha = 0f // Inicia transparente
+
+        // Animación de fade-in con retraso progresivo
+        holder.itemView.animate()
+            .alpha(1f)
+            .setDuration(300L)
+            .setStartDelay(100L * position) // Cada item se retrasa 100ms más que el anterior
+            .start()
+
         val anuncio = anuncios[position]
         holder.localidad.text = anuncio.localidad
         holder.texto.text = anuncio.texto
