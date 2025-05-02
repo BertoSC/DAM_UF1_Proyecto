@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/creme"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- RecyclerView con íconos de gatos (horizontal) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- RecyclerView de íconos de gatos -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvGatos"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <!-- Botón para añadir gato (mismo tamaño que los ítems) -->
+        <ImageButton
+            android:id="@+id/btnAnadirGato"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerCrop"
+            android:src="@drawable/iconcreargato" />
+    </LinearLayout>
+
+    <!-- Detalle del gato (inicialmente oculto) -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/detalleGato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imagen_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="40dp"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+
+            <LinearLayout
+                android:id="@+id/bloque_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:layout_marginBottom="15dp">
+
+                <TextView
+                    android:id="@+id/cabecera_nombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="@color/brown"
+                    android:fontFamily="@font/amaticregular"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="5dp"
+                    android:text="nombre"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/gatito_nombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/amaticregular"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/bloque_edad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:layout_marginBottom="15dp">>
+
+                <TextView
+                    android:id="@+id/cabecera_edad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="@color/brown"
+                    android:fontFamily="@font/amaticregular"
+                    android:paddingLeft="26dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="26dp"
+                    android:paddingBottom="5dp"
+                    android:text="edad"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/gatito_edad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/amaticregular"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bloque_raza"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:layout_marginBottom="15dp">>
+
+                <TextView
+                    android:id="@+id/cabecera_raza"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="@color/brown"
+                    android:fontFamily="@font/amaticregular"
+                    android:paddingLeft="26dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="26dp"
+                    android:paddingBottom="5dp"
+                    android:text="raza"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/gatito_raza"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/rounded_background"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/amaticregular"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/bloq_alim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_background"
+                android:backgroundTint="@color/brown"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/cabecera_alim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+
+                    android:fontFamily="@font/amaticregular"
+                    android:paddingLeft="26dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="26dp"
+                    android:paddingBottom="5dp"
+
+                    android:text="alimentación"
+                    android:textAlignment="textStart"
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/ivAlimentacion"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/alimentacion" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/gatito_alim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_background"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/amaticregular"
+                android:padding="5dp"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"
+
+                android:layout_marginBottom="20dp"/>
+
+
+            <LinearLayout
+                android:id="@+id/bloq_med"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/rounded_background"
+                android:backgroundTint="@color/brown"
+                android:gravity="center"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/cabecera_med"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+
+                    android:fontFamily="@font/amaticregular"
+                    android:paddingLeft="26dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="26dp"
+                    android:paddingBottom="5dp"
+
+                    android:text="medicación"
+                    android:textAlignment="textStart"
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/ivMedicacion"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/medicacion" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/gatito_med"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/rounded_background"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/amaticregular"
+                android:padding="5dp"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/bloq_vac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/rounded_background"
+                android:backgroundTint="@color/brown"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/cabecera_vac"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+
+                    android:fontFamily="@font/amaticregular"
+                    android:paddingLeft="26dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="26dp"
+                    android:paddingBottom="5dp"
+
+                    android:text="vacunas"
+                    android:textAlignment="textStart"
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/ivVacuna"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/vacuna" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCitas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_marginBottom="10sp"/>
+
+
+
+            <Button
+                android:id="@+id/btn_añadir_vacuna"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/grey"
+                android:textColor="@color/white"
+                android:fontFamily="@font/amaticregular"
+                android:text="+"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                />
+
+
+
+            <LinearLayout
+                android:id="@+id/bloq_citas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/rounded_background"
+                android:backgroundTint="@color/brown"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/cabecera_citas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+
+                    android:fontFamily="@font/amaticregular"
+                    android:paddingLeft="26dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="26dp"
+                    android:paddingBottom="5dp"
+
+                    android:text="Próximas citas"
+                    android:textAlignment="textStart"
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/ivCita"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/citas" />
+
+            </LinearLayout>
+
+
+
+            <!-- RecyclerView de eventos -->
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvEventos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_marginBottom="20sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="13dp">
+
+                <Button
+                    android:id="@+id/btn_editar_perfil"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/btn_editar"
+                    android:backgroundTint="@color/cardview_dark_background"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/amaticregular"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="15dp"
+                    android:gravity="center"
+                    />
+
+                <Button
+                    android:id="@+id/btn_eliminar_perfil"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/btn_eliminar"
+                    android:backgroundTint="@color/black"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/amaticregular"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>
