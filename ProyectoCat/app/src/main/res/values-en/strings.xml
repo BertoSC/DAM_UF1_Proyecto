@@ -6,6 +6,14 @@
     <string name="tablon_felino">Feline Board</string>
 
     <string name="misgatos">My cats</string>
+    <string name="gatitonombre">Name</string>
+    <string name="gatitoedad">Age</string>
+    <string name="gatitoraza">Race</string>
+    <string name="gatitoalimentacion">Feeding</string>
+    <string name="gatitomed">Medication</string>
+    <string name="gatitovac">Vaccines</string>
+    <string name="gatitocitas">Next appointments</string>
+
 
     <string name="cerrar_sesion">Log out</string>
 
