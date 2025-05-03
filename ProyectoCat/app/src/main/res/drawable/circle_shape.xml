@@ -1,0 +1,16 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"> <!-- Forma ovalada (círculo perfecto si el ancho=alto) -->
+
+    <!-- Color de fondo del círculo -->
+    <solid android:color="@color/creme" /> <!-- Ej: #FF5722 o @color/orange -->
+
+    <!-- Borde opcional -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/brown" /> <!-- Ej: #FFFFFF -->
+
+    <!-- Tamaño igual al ImageView (60dp) -->
+    <size
+        android:width="60dp"
+        android:height="60dp"/>
+</shape>

@@ -16,6 +16,8 @@
     <string name="gatitovac">Vacunas</string>
     <string name="gatitocitas">Próximas citas</string>
 
+    <string name="addperfil">Escribe los datos del gatito</string>
+
     <string name="add_titulo">Añade un título</string>
     <string name="text_post">Aquí escribe el texto</string>
     <string name="add_entrada">Escribe un nuevo post</string>

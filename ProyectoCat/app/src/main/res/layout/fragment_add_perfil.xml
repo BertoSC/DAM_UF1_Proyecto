@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/creme">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="80dp"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/rounded_background"
+            android:layout_margin="40dp">
+
+
+            <TextView
+                android:id="@+id/add_perfil_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/addperfil"
+                android:fontFamily="@font/amaticregular"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="30dp"
+                android:layout_gravity="center" />
+
+
+
+            <EditText
+                android:id="@+id/et_introduce_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="@string/gatitonombre"
+                android:textSize="16sp"
+                android:inputType="text" />
+
+
+            <EditText
+                android:id="@+id/et_introduce_edad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="@string/gatitoedad"
+                android:textSize="16sp"/>
+
+            <EditText
+                android:id="@+id/et_introduce_raza"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="@string/gatitoraza"
+                android:textSize="16sp"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/et_alimentacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="@string/gatitoalimentacion"
+                android:textSize="16sp"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical" />
+
+            <EditText
+                android:id="@+id/et_medicacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/gatitomed"
+                android:textSize="16sp"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical" />
+
+            <EditText
+                android:id="@+id/et_vacunas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/gatitovac"
+                android:textSize="16sp"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical" />
+
+
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                />
+
+
+            <Button
+                android:id="@+id/btn_seleccionar_imagen_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/select_img"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/grey"
+                android:textColor="@color/black"
+                android:layout_margin="8dp"
+                />
+
+            <Button
+                android:id="@+id/btn_guardar_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:fontFamily="@font/amaticregular"
+                android:text="@string/btn_guardar"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/brown"
+                android:textColor="@color/white"
+                android:layout_margin="8dp"
+                android:layout_marginBottom="20dp"/>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+</FrameLayout>

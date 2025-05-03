@@ -88,7 +88,19 @@
     </fragment>
     <fragment
         android:id="@+id/perfilFragment"
-        android:name="com.example.proyecto_uf1.PerfilFragment"
-        android:label="" />
+        android:name="com.example.proyecto_uf1.views.PerfilFragment"
+        android:label="" >
+        <action
+            android:id="@+id/action_perfilFragment_to_addPerfilFragment"
+            app:destination="@id/addPerfilFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPerfilFragment"
+        android:name="com.example.proyecto_uf1.views.AddPerfilFragment"
+        android:label="" >
+        <action
+            android:id="@+id/action_addPerfilFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment" />
+    </fragment>
 
 </navigation>
