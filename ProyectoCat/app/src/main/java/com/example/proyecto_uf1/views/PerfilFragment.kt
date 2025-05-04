@@ -22,7 +22,9 @@ class PerfilFragment : Fragment() {
     private var _binding: FragmentPerfilBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: MascotaViewModel by viewModels()
+    private val viewModel: MascotaViewModel by viewModels(
+    ownerProducer = { requireActivity() }
+    )
     private val listaMascotas = mutableListOf<Mascota>()
 
     private lateinit var recyclerViewGatos: RecyclerView
@@ -80,14 +82,12 @@ class PerfilFragment : Fragment() {
             .into(binding.imagenPerfil)
     }
 
-
+    /*
+    *
     override fun onResume() {
         super.onResume()
         viewModel.cargarMascotas()
-    }
-
-
-
+    }*/
 
     override fun onDestroyView() {
         super.onDestroyView()

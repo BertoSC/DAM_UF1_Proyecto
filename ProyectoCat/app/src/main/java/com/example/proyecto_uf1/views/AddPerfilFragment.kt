@@ -27,7 +27,10 @@ class AddPerfilFragment : Fragment() {
     private var _binding: FragmentAddPerfilBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: MascotaViewModel by viewModels()
+    private val viewModel: MascotaViewModel by viewModels(
+        ownerProducer = { this.requireActivity() }
+    )
+
     private var selectedImageUri: Uri? = null
 
     private val imagePickerLauncher =
