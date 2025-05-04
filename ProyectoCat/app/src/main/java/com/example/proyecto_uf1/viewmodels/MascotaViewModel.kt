@@ -14,8 +14,8 @@ class MascotaViewModel(application: Application) : AndroidViewModel(application)
 
     private val repository = MascotaRepository(application)
 
-    private val _mascotas = MutableLiveData<List<Mascota>>(emptyList())
-    val mascotas: LiveData<List<Mascota>> get() = _mascotas
+    private val _mascotas = MutableLiveData<MutableList<Mascota>>(mutableListOf())
+    val mascotas: LiveData<MutableList<Mascota>> get() = _mascotas
 
     init {
         cargarMascotas()

@@ -9,6 +9,7 @@ import android.widget.ImageButton
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.proyecto_uf1.R
 import com.example.proyecto_uf1.adapters.IconoGatoAdapter
@@ -23,6 +24,8 @@ class PerfilFragment : Fragment() {
 
     private val viewModel: MascotaViewModel by viewModels()
     private val listaMascotas = mutableListOf<Mascota>()
+
+    private lateinit var recyclerViewGatos: RecyclerView
 
     private lateinit var adapter: IconoGatoAdapter
     private var mascotaSeleccionada: Mascota? = null
@@ -42,8 +45,9 @@ class PerfilFragment : Fragment() {
             mostrarDetalleMascota(mascota)
         }
 
-        binding.rvGatos.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        binding.rvGatos.adapter = adapter
+        recyclerViewGatos = binding.rvGatos
+        recyclerViewGatos.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        recyclerViewGatos.adapter = adapter
 
 
         viewModel.mascotas.observe(viewLifecycleOwner) { lista ->
@@ -76,10 +80,14 @@ class PerfilFragment : Fragment() {
             .into(binding.imagenPerfil)
     }
 
+
     override fun onResume() {
         super.onResume()
         viewModel.cargarMascotas()
     }
+
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
